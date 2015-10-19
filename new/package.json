@@ -1,0 +1,25 @@
+{
+  "name": "ptsignup",
+  "version": "2.1.0",
+  "author": "Bin Wu <bin.wu@ptengine.com>",
+  "main": "lib/main.js",
+  "bin": {
+    "jshint": "./node_modules/jshint/bin/jshint"
+  },
+  "scripts": {
+    "pretest": "jshint .",
+    "start": "node lib/main.js"
+  },
+  "dependencies": {
+    "request": "^2.64.0"
+  },
+  "devDependencies": {
+    "jshint": "^2.8.0",
+    "node-inspector": "^0.12.3"
+  },
+  "repository": {
+    "type": "",
+    "url": ""
+  },
+  "description": "ptsignup"
+}
