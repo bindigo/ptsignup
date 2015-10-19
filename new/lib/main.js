@@ -6,6 +6,7 @@ var ptc = require('./ptcounter');
 // servers setup
 //var regservice = 'http://192.168.3.228:8080/service';
 var regservice = 'http://192.168.2.21:8080/service';
+
 var loginservice = 'http://192.168.2.44:3000/ptmindservice/user/login';
 
 var num;
@@ -28,7 +29,7 @@ try{
 email = email_p1 + num + email_p2;
 
 // request pubkey for registration
-initrsa(function(err, response, body){
+initrsa(regservice, function(err, response, body){
   if (err) {
     console.log(err);
   } else {
@@ -53,7 +54,7 @@ initrsa(function(err, response, body){
 
 // request pubkey for login
 function doLogin() {
-  initrsa(function(err, response, body){
+  initrsa('http://192.168.2.44:3000/ptmindservice/user', function(err, response, body){
     if (err) {
       console.log(err);
     } else {
@@ -70,8 +71,8 @@ function doLogin() {
 }
 
 // step 1: making a get request to get module? and exponent
-function initrsa(cb) {
-  var rsaurl = regservice + '/RSAPassword';
+function initrsa(url, cb) {
+  var rsaurl = url + '/RSAPassword';
 
   req(
     {
